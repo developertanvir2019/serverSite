@@ -5,6 +5,7 @@ const cors = require('cors')
 const port = process.env.PORT || 5000;
 app.use(cors());
 const categories = require('./categories.json')
+const products = require('./products.json')
 const news = require('./news.json');
 
 
@@ -13,6 +14,9 @@ app.get('/', (req, res) => {
 });
 app.get('/news-categories', (req, res) => {
     res.send(categories)
+});
+app.get('/new-product', (req, res) => {
+    res.send(products)
 });
 app.get('/news/:id', (req, res) => {
     const id = req.params.id;
